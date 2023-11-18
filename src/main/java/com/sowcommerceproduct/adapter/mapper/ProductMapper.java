@@ -21,6 +21,8 @@ public class ProductMapper implements Mapper<ProductDTO, Product, ProductEntity>
                 .category(categoryMapper.fromEntity(entity.getCategory()))
                 .amountInStock(entity.getAmountInStock())
                 .price(entity.getPrice())
+                .createdDate(entity.getCreatedDate())
+                .updatedDate(entity.getUpdatedDate())
                 .build();
     }
 
@@ -45,6 +47,8 @@ public class ProductMapper implements Mapper<ProductDTO, Product, ProductEntity>
                 .category(categoryMapper.toEntity(domain.getCategory()))
                 .amountInStock(domain.getAmountInStock())
                 .price(domain.getPrice())
+                .createdDate(domain.getCreatedDate())
+                .updatedDate(domain.getUpdatedDate())
                 .build();
     }
 

@@ -26,6 +26,7 @@ public final class Helper {
     public static ProductDTO buildProductDTO(Long id) {
         return ProductDTO.builder()
                 .id(id)
+                .category(buildCategoryDTO(1L))
                 .name("test_product")
                 .description("test_description")
                 .amountInStock(50)
@@ -36,6 +37,7 @@ public final class Helper {
     public static Product buildProduct(Long id) {
         return Product.builder()
                 .id(id)
+                .category(buildCategory(10L))
                 .name("test_product")
                 .description("test_description")
                 .amountInStock(50)
@@ -49,6 +51,7 @@ public final class Helper {
         return ProductEntity.builder()
                 .id(id)
                 .name("test_product")
+                .category(buildCategoryEntity(12L))
                 .description("test_description")
                 .amountInStock(50)
                 .price(500.0)
