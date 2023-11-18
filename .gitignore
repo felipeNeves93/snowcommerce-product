@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+build/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Logs
+logs/
+*.log
+
+# Compiled class file
+*.class
+
+# Compiled build application
+*.jar
+
+# Local configuration file (Spring Boot)
+application.properties
+
+# Dependency directory
+.idea_libs/
+
+# Eclipse
+.classpath
+.project
+.settings/
