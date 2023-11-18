@@ -15,7 +15,8 @@ public class Product {
     private String name;
     private String description;
     private Category category;
-    private int amountInStock;
+    @Builder.Default
+    private int amountInStock = 0;
     private Double price;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;

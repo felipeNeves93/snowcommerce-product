@@ -31,6 +31,7 @@ public class ProductEntity {
     private CategoryEntity category;
 
     @Column(name = "amount_in_stock", nullable = false)
+    @Builder.Default
     private Integer amountInStock = 0;
 
     @Column(nullable = false)

@@ -25,6 +25,8 @@ public class CategoryMapper implements Mapper<CategoryDTO, Category, CategoryEnt
         return CategoryEntity.builder()
                 .id(domain.getId())
                 .name(domain.getName())
+                .createDate(domain.getCreatedDate())
+                .updatedDate(domain.getUpdatedDate())
                 .build();
     }
 
