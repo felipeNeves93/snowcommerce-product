@@ -17,7 +17,7 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'open'
+          distribution: 'oracle'
           java-version: '17'
 
       - name: Build with Gradle
@@ -35,7 +35,7 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'open'
+          distribution: 'oracle'
           java-version: '17'
 
       - name: Build and Test with Gradle
