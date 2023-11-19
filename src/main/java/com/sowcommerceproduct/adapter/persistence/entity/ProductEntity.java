@@ -2,6 +2,8 @@ package com.sowcommerceproduct.adapter.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -28,6 +30,7 @@ public class ProductEntity {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @Cascade(CascadeType.ALL)
     private CategoryEntity category;
 
     @Column(name = "amount_in_stock", nullable = false)
