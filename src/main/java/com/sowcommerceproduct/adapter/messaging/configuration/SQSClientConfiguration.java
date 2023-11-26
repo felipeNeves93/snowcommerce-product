@@ -7,18 +7,20 @@ import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
+@Profile("development")
 public class SQSClientConfiguration {
-
-    @Value("${app.config.aws.access-key-id}")
-    private String awsAccessKeyId;
-
-    @Value("${app.config.aws.secret-key-id}")
-    private String awsSecretKeyId;
 
     @Value("${app.config.aws.region}")
     private String region;
+
+    @Value("${app.config.aws.access_key_id}")
+    private String awsAccessKeyId;
+
+    @Value("${app.config.aws.secret_key_id}")
+    private String awsSecretKeyId;
 
     @Bean
     public AmazonSQS amazonSQSClient() {

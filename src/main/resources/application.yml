@@ -1,0 +1,10 @@
+app:
+  config:
+    aws:
+      region: us-east-1
+      access_key_id: ${AWS_ACCESS_KEY_ID}
+      secret_key_id: ${AWS_SECRET_KEY_ID}
+  messaging:
+    queues:
+      order-payment: order-payment
+      order-finished: order-finished

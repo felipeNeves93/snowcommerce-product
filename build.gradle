@@ -28,8 +28,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
 	// AWS
-	implementation 'com.amazonaws:aws-java-sdk-sqs:1.12.349'
-
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation group: 'com.h2database', name: 'h2', version: '2.2.220'
 

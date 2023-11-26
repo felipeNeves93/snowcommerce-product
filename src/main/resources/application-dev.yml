@@ -1,9 +1,0 @@
-app:
-  config:
-    aws:
-      region: us-west-1
-      access-key-id: sa
-      secret-key-id: sa
-
-server:
-  port: 8081
