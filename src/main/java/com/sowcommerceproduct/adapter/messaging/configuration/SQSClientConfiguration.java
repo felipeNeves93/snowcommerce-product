@@ -1,32 +1,38 @@
 package com.sowcommerceproduct.adapter.messaging.configuration;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.sqs.AmazonSQS;
-import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
+import io.awspring.cloud.sqs.operations.SqsTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.sqs.SqsAsyncClient;
 
 @Configuration
-@Profile("development")
 public class SQSClientConfiguration {
 
-    @Value("${app.config.aws.region}")
+    @Value("${spring.cloud.aws.region}")
     private String region;
 
-    @Value("${app.config.aws.access_key_id}")
-    private String awsAccessKeyId;
+    @Value("${spring.cloud.aws.credentials.access_key}")
+    private String accessKey;
 
-    @Value("${app.config.aws.secret_key_id}")
-    private String awsSecretKeyId;
+    @Value("${spring.cloud.aws.credentials.access_key}")
+    private String secretKey;
 
     @Bean
-    public AmazonSQS amazonSQSClient() {
-        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(awsAccessKeyId, awsSecretKeyId);
-        return AmazonSQSClientBuilder.standard()
-                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
-                .withRegion(region).build();
+    public SqsAsyncClient sqsAsyncClient() {
+        return SqsAsyncClient.builder()
+                .region(Region.of(region))
+                .credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKey, secretKey)))
+                .build();
     }
+
+    @Bean
+    public SqsTemplate sqsTemplate(SqsAsyncClient sqsAsyncClient) {
+        return SqsTemplate.builder().sqsAsyncClient(sqsAsyncClient).build();
+    }
+
+
 }
