@@ -9,7 +9,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
-@Table(name = "PRODUCTS")
+@Table(name = "product")
 @Entity
 @Getter
 @Setter

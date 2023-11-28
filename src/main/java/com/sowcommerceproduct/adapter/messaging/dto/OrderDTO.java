@@ -1,4 +1,4 @@
-package com.sowcommerceproduct.adapter.dto;
+package com.sowcommerceproduct.adapter.messaging.dto;
 
 import lombok.*;
 
@@ -12,5 +12,5 @@ import java.util.List;
 public class OrderDTO {
     private String id;
     private List<OrderProductDTO> products;
-    private double price;
+    private double total;
 }

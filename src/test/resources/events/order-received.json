@@ -1,0 +1,22 @@
+{
+  "eventId": "4b8f5502-4702-4819-9fb7-884138d68c50",
+  "order": {
+    "id": "844229fb-3445-4dfe-b616-c7766b60ce76",
+    "products": [
+      {
+        "id": 1,
+        "amount": 10,
+        "price": 100
+      },
+      {
+        "id": 2,
+        "amount": 1,
+        "price": 800
+      }
+    ],
+    "total": 1800,
+    "createdDate": "2023-11-28T00:38:56"
+  },
+  "eventType": "WAITING_PAYMENT",
+  "timestamp": "2023-11-28T00:38:56"
+}

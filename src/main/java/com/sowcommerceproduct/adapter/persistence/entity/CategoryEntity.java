@@ -10,7 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
-@Table(name = "CATEGORY")
+@Table(name = "category")
 @Entity
 @AllArgsConstructor
 @Getter
@@ -26,7 +26,7 @@ public class CategoryEntity {
     private String name;
 
     @CreatedDate
-    private LocalDateTime createDate;
+    private LocalDateTime createdDate;
 
     @LastModifiedDate
     private LocalDateTime updatedDate;
