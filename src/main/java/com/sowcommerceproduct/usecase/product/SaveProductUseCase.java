@@ -1,4 +1,4 @@
-package com.sowcommerceproduct.usecase;
+package com.sowcommerceproduct.usecase.product;
 
 import com.sowcommerceproduct.domain.product.Product;
 

@@ -2,7 +2,7 @@ package com.sowcommerceproduct.service.product;
 
 import com.sowcommerceproduct.domain.product.Product;
 import com.sowcommerceproduct.port.in.SaveProductPort;
-import com.sowcommerceproduct.usecase.SaveProductUseCase;
+import com.sowcommerceproduct.usecase.product.SaveProductUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
