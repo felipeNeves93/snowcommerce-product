@@ -1,15 +1,24 @@
 package com.sowcommerceproduct.adapter.persistence.adapter.in;
 
 import com.sowcommerceproduct.Helper;
+import com.sowcommerceproduct.adapter.messaging.listener.SQSListener;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import software.amazon.awssdk.services.sqs.SqsAsyncClient;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class SaveProductPersistenceAdapterTest {
+
+    @MockBean
+    private SqsAsyncClient sqsAsyncClient;
+
+    @MockBean
+    private SQSListener sqsListener;
 
     @Autowired
     private SaveProductPersistenceAdapter saveProductPersistenceAdapter;

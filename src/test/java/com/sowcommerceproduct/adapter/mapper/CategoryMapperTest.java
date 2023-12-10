@@ -34,7 +34,7 @@ class CategoryMapperTest {
 
         assertThat(mappedObject.getId()).isEqualTo(domainObject.getId());
         assertThat(mappedObject.getName()).isEqualTo(domainObject.getName());
-        assertThat(mappedObject.getCreateDate()).isEqualTo(domainObject.getCreatedDate());
+        assertThat(mappedObject.getCreatedDate()).isEqualTo(domainObject.getCreatedDate());
         assertThat(mappedObject.getUpdatedDate()).isEqualTo(domainObject.getUpdatedDate());
     }
 
@@ -58,6 +58,6 @@ class CategoryMapperTest {
 
         assertThat(mappedObject.getId()).isEqualTo(entity.getId());
         assertThat(mappedObject.getName()).isEqualTo(entity.getName());
-        assertThat(mappedObject.getCreatedDate()).isEqualTo(entity.getCreateDate());
+        assertThat(mappedObject.getCreatedDate()).isEqualTo(entity.getCreatedDate());
     }
 }

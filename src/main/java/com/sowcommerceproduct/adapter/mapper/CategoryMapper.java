@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class CategoryMapper implements Mapper<CategoryDTO, Category, CategoryEntity> {
     @Override
     public Category fromEntity(CategoryEntity entity) {
-        return new Category(entity.getId(), entity.getName(), entity.getCreateDate(), entity.getUpdatedDate());
+        return new Category(entity.getId(), entity.getName(), entity.getCreatedDate(), entity.getUpdatedDate());
     }
 
     @Override
@@ -25,7 +25,7 @@ public class CategoryMapper implements Mapper<CategoryDTO, Category, CategoryEnt
         return CategoryEntity.builder()
                 .id(domain.getId())
                 .name(domain.getName())
-                .createDate(domain.getCreatedDate())
+                .createdDate(domain.getCreatedDate())
                 .updatedDate(domain.getUpdatedDate())
                 .build();
     }

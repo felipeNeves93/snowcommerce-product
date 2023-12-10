@@ -13,7 +13,7 @@ public class SQSListener {
 
     private final MessageMapper messageMapper;
 
-    @SqsListener(queueNames = {"#{app.config.messaging.queues.order-payment}", "#{app.config.messaging.queues.order-finished}"})
+    @SqsListener(queueNames = {"${app.config.messaging.queues.order-payment}", "${app.config.messaging.queues.order-finished}"})
     public void orderEventListener(String message) {
         try {
             log.info("Message received: {}. Mapping...", message);
