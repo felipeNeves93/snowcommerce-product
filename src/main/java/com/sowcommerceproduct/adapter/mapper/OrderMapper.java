@@ -10,9 +10,11 @@ import java.util.ArrayList;
 @Component
 public class OrderMapper implements Mapper<OrderDTO, Order, Object> {
 
+    private static final String MESSAGE_NOT_IMPLEMENTED = "Method not implemented!";
+
     @Override
     public Order fromEntity(Object entity) {
-        throw new IllegalStateException("Method not implemented !");
+        throw new IllegalStateException(MESSAGE_NOT_IMPLEMENTED);
     }
 
     @Override
@@ -34,11 +36,11 @@ public class OrderMapper implements Mapper<OrderDTO, Order, Object> {
 
     @Override
     public Object toEntity(Order domain) {
-        throw new IllegalStateException("Method not implemented !");
+        throw new IllegalStateException(MESSAGE_NOT_IMPLEMENTED);
     }
 
     @Override
     public OrderDTO toDTO(Order domain) {
-        throw new IllegalStateException("Method not implemented !");
+        throw new IllegalStateException(MESSAGE_NOT_IMPLEMENTED);
     }
 }

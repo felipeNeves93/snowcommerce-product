@@ -1,8 +1,8 @@
 package com.sowcommerceproduct.usecase.order;
 
-import com.sowcommerceproduct.domain.order.UpdateStockOrder;
+import com.sowcommerceproduct.domain.order.Order;
 
 public interface ProcessOrderUseCase {
 
-    void process(UpdateStockOrder order );
+    void process(Order order);
 }

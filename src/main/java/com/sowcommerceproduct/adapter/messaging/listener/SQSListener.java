@@ -3,9 +3,7 @@ package com.sowcommerceproduct.adapter.messaging.listener;
 import com.sowcommerceproduct.adapter.mapper.OrderMapper;
 import com.sowcommerceproduct.adapter.messaging.mapper.MessageMapper;
 import com.sowcommerceproduct.domain.order.Status;
-import com.sowcommerceproduct.domain.order.UpdateStockOrder;
 import com.sowcommerceproduct.usecase.order.ProcessOrderUseCase;
-import com.sowcommerceproduct.usecase.order.ReceiveOrderUseCase;
 import io.awspring.cloud.sqs.annotation.SqsListener;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,14 +27,13 @@ public class SQSListener {
 
             log.info("Mapping order from Event");
             var order = orderMapper.fromDTO(event.getOrder());
+            order.setStatus(Status.valueOf(event.getEventType().name()));
             log.info("Order mapped successfully {}", order);
 
-            processOrderUseCase.process(new UpdateStockOrder(order, Status.valueOf(event.getEventType().toString())));
+            processOrderUseCase.process(order);
 
         } catch (Exception e) {
             log.error("An error ocurred while processing the message. Error: {}", e.getMessage());
         }
-
     }
-
 }

@@ -1,6 +1,7 @@
 package com.sowcommerceproduct.service.order;
 
-import com.sowcommerceproduct.domain.order.UpdateStockOrder;
+import com.sowcommerceproduct.domain.order.Order;
+import com.sowcommerceproduct.domain.order.Status;
 import com.sowcommerceproduct.usecase.order.ProcessOrderUseCase;
 import com.sowcommerceproduct.usecase.order.SendOrderUseCase;
 import com.sowcommerceproduct.usecase.product.UpdateStockUseCase;
@@ -19,18 +20,17 @@ public class ProcessOrderService implements ProcessOrderUseCase {
 
     @Transactional
     @Override
-    public void process(UpdateStockOrder updateStockOrder) {
-        log.info("Receiveing order: {} ", updateStockOrder);
-
+    public void process(Order order) {
+        log.info("Receiveing order: {} ", order);
         try {
 
-            if (updateStockOrder.shouldUpdateStock()) {
+            if (order.shouldUpdateStock()) {
                 log.info("Updating stock");
-                updateStockUseCase.updateStock(updateStockOrder);
+                updateStockUseCase.updateStock(order);
             }
         } catch (Exception e) {
-
+            order.setStatus(Status.ERROR);
+            sendOrderUseCase.send(order);
         }
-
     }
 }

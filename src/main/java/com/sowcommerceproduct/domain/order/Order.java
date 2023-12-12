@@ -1,6 +1,5 @@
 package com.sowcommerceproduct.domain.order;
 
-import com.sowcommerceproduct.domain.product.Product;
 import lombok.*;
 
 import java.util.List;
@@ -15,4 +14,9 @@ public class Order {
     private String id;
     private List<OrderProduct> products;
     private double total;
+    private Status status;
+
+    public boolean shouldUpdateStock() {
+        return status.isAddProductToStock() || status.isRemoveProductFromStock();
+    }
 }
