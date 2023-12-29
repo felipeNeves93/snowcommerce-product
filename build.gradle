@@ -30,11 +30,14 @@ dependencies {
 	// AWS
 	implementation 'io.awspring.cloud:spring-cloud-aws-starter:3.0.3'
 	implementation 'io.awspring.cloud:spring-cloud-aws-sqs:3.0.0'
+	implementation 'io.awspring.cloud:spring-cloud-aws-test:3.1.0'
 
-
+	// Tests
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation group: 'com.h2database', name: 'h2', version: '2.2.220'
-
+	testImplementation 'org.awaitility:awaitility:4.2.0'
+	testImplementation 'org.testcontainers:junit-jupiter:1.19.3'
+	testImplementation 'org.testcontainers:localstack:1.19.3'
 }
 
 tasks.named('bootBuildImage') {
